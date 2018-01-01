@@ -1,7 +1,13 @@
+# Python 2 compatibility
+from __future__ import (absolute_import, division,
+                        print_function, unicode_literals)
+from builtins import *
+
 import socket
 from multiprocessing.dummy import Pool
 import argparse
 import sys
+
 """
 Pnock - knocking ports in pure python
 
@@ -26,12 +32,19 @@ def local_ip():
         s.close()
     return ip
 
+# Errors that signal a closed port are dependent on the python version
+if sys.version_info >= (3, 0):
+    KNOCK_FAIL_ERRORS = (ConnectionRefusedError, OSError)
+else:
+    KNOCK_FAIL_ERRORS = (socket.error, OSError)
+
+
 def knock(ip, port, timeout=DEFAULT_TIMEOUT):
     """ Checks if the port is open on the given ip. """
     try:
         socket.create_connection((ip, port), timeout)
         return True
-    except (ConnectionRefusedError, OSError):
+    except KNOCK_FAIL_ERRORS:
         return False
 
 def sweep(ips, port, timeout=DEFAULT_TIMEOUT):
