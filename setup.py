@@ -10,7 +10,7 @@ setup(
     license='MIT',
 
     classifiers=[
-        'Development Status :: 4 - Alpha',
+        'Development Status :: 4 - Beta',
 
         'Intended Audience :: Developers',
         'Topic :: System :: Networking',
