@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='pnock',
-    version='0.1.0',
+    version='0.1.1',
     description='Quickly finds which hosts are running a server on a given port on your local network.',
     url='https://github.com/wildarch/pnock',
     author='Daan de Graaf',
