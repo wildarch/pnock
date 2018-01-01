@@ -23,7 +23,7 @@ setup(
         'Programming Language :: Python :: 3.6',
     ],
 
-    keywords='ssh discover raspberry pi',
+    keywords='port knock discover ssh raspberry pi',
 
     py_modules=['pnock'],
 
